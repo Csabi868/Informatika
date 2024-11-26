@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flexbox Layout with Sidebar</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Menu */
+        .menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #333;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        .menu a.active {
+            background-color: #007bff;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .menu {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+        }
+
+        /* Main content area */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+        }
+
+        /* Flexbox Layout for items */
+        .flexbox {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .flexbox>div {
+            padding: .5rem;
+            margin: 2px;
+            background-color: silver;
+            border: 1px solid black;
+            flex-basis: calc(25% - 4px);
+        }
+
+        /* Responsive Flex Items */
+        @media (max-width: 576px){
+            .flexbox>div { flex-basis: 100%; }
+        }
+
+        @media (max-width: 768px) and (min-width: 576px) {
+            .flexbox>div { flex-basis: 46%; }
+        }
+
+        @media (min-width: 768px) and (max-width: 992px){
+            .flexbox>div { flex-basis: 30%; }
+        }
+
+        @media (min-width: 992px) and (max-width: 1200px){
+            .flexbox>div { flex-basis: 22%; }
+        }
+
+        @media (min-width: 1200px){
+            .flexbox>div { flex-basis: 16%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu -->
+    <div class="menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#blog">Blog</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <header>
+            <h1>Flexbox Layout</h1>
+        </header>
+
+        <!-- Links Section -->
+        <section id="links">
+            <ul>
+                <li><strong><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Flexbox Layout Guide - CSS-Trics</a></strong></li>
+                <li><a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank">CSS Flexbox - W3Schools</a></li>
+                <li><a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank">CSS Media Queries</a></li>
+            </ul>
+        </section>
+
+        <!-- Flexbox Grid -->
+        <div class="flexbox">
+            <div>
+                <h2>Flex item</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident eaque fuga vel laborum, quidem recusandae iure dolore earum aperiam accusantium cumque eius minus est repellendus! Aspernatur saepe provident dolorum atque.</p>
+            </div>
+            <div>
+                <h2>Flex item</h2>
+                <p>Ipsa quis necessitatibus eligendi minima accusamus, ducimus cumque unde accusantium repudiandae officia? Nemo corporis porro sed incidunt, nobis nesciunt, labore dolorum ea sequi maiores tenetur veritatis in magni atque eum.</p>
+            </div>
+            <div>
+                <h2>Flex item</h2>
+                <p>A rem quia optio enim nesciunt voluptatum distinctio iusto autem tenetur dicta, sapiente ipsam libero sequi perspiciatis deserunt, magni beatae repellendus adipisci cupiditate accusantium tempora porro natus, delectus error. Recusandae.</p>
+            </div>
+            <div>
+                <h2>Flex item</h2>
+                <p>Ipsa quis necessitatibus eligendi minima accusamus, ducimus cumque unde accusantium repudiandae officia? Nemo corporis porro sed incidunt, nobis nesciunt, labore dolorum ea sequi maiores tenetur veritatis in magni atque eum.</p>
+            </div>
+            <div>
+                <h2>Flex item</h2>
+                <p>A rem quia optio enim nesciunt voluptatum distinctio iusto autem tenetur dicta, sapiente ipsam libero sequi perspiciatis deserunt, magni beatae repellendus adipisci cupiditate accusantium tempora porro natus, delectus error. Recusandae.</p>
+            </div>
+            <div>
+                <h2>Flex item</h2>
+                <p>A rem quia optio enim nesciunt voluptatum distinctio iusto autem tenetur dicta, sapiente ipsam libero sequi perspiciatis deserunt, magni beatae repellendus adipisci cupiditate accusantium tempora porro natus, delectus error. Recusandae.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
